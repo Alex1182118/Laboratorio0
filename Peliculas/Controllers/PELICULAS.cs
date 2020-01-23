@@ -12,12 +12,12 @@ namespace Peliculas.Controllers
     [Route("[controller]")]
     public class PELICULAS : ControllerBase
     {
-              
-                
-        //[HttpGet]
+
+
+        [HttpGet]
         //public IEnumerable<Pelicula> AñadirPelicula()
         //{
-        //    var rng = new Random();
+            
         //    return Enumerable.Range(1, 5).Select(index => new Pelicula
         //    {
         //        Date = DateTime.Now.AddDays(index),
@@ -26,15 +26,21 @@ namespace Peliculas.Controllers
         //    })
         //    .ToArray();
         //}
-        Stack<Pelicula> Pila = new Stack<Pelicula>();
+        
 
         [HttpPost]
-        public IEnumerable<Pelicula> ObtenerPeliculas()
+        public IEnumerable<Pelicula>AñadirPeliculas([FromBody]string nombre, [FromBody]string director, [FromBody] int año)
         {
-            
+           Stack<Pelicula> Pila = new Stack<Pelicula>();
+            var peliculas = new Pelicula
+            {
+                Nombre = nombre,
+                Director = director,
+                Año = año 
 
-            
-            
+            };
+            Pila.Push(peliculas);
+             return Pila;
         }
 
 
