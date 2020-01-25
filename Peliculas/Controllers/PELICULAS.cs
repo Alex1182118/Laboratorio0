@@ -15,15 +15,19 @@ namespace Peliculas.Controllers
     {
 
         public readonly static List<Pelicula> PeliculaLista = new List<Pelicula>();
+        [HttpGet]
+        public ActionResult<IEnumerable<string>> Mostrar()
+        {
+            return new string[] { "/MostrarPelicula" };
+        }
 
-        
         [HttpPost]
         public void AñadirPeliculas([FromBody] Pelicula pelicula) 
         {
             PeliculaLista.Add(pelicula);
         }
-
-        //[Route("MostrarPelicula")]
+        //Pelicula/MostrarPelicula
+        [Route("MostrarPelicula")]
         [HttpGet]
                
         public string Get(string MostrarTodo)
