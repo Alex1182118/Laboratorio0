@@ -1,48 +1,41 @@
-﻿using System;
+﻿
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Peliculas.Models;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.Extensions.Logging;
-
+using Newtonsoft.Json;
 
 namespace Peliculas.Controllers
 {
     [ApiController]
-    [Route("[controller]")]
+    [Route("Pelicula")]
     public class PELICULAS : ControllerBase
     {
 
+        public readonly static List<Pelicula> PeliculaLista = new List<Pelicula>();
 
-        [HttpGet]
-        //public IEnumerable<Pelicula> AñadirPelicula()
-        //{
-            
-        //    return Enumerable.Range(1, 5).Select(index => new Pelicula
-        //    {
-        //        Date = DateTime.Now.AddDays(index),
-        //        TemperatureC = rng.Next(-20, 55),
-        //        Summary = Summaries[rng.Next(Summaries.Length)]
-        //    })
-        //    .ToArray();
-        //}
         
-
         [HttpPost]
-        public IEnumerable<Pelicula>AñadirPeliculas([FromBody]string nombre, [FromBody]string director, [FromBody] int año)
+        public void AñadirPeliculas([FromBody] Pelicula pelicula) 
         {
-           Stack<Pelicula> Pila = new Stack<Pelicula>();
-            var peliculas = new Pelicula
-            {
-                Nombre = nombre,
-                Director = director,
-                Año = año 
 
-            };
-            Pila.Push(peliculas);
-             return Pila;
+          
         }
 
+        //[Route("MostrarPelicula")]
+        [HttpGet]
+               
+        public string Get(string MostrarTodo)
+        {
+             
+            
+           
+            return MostrarTodo;
+
+        }
+        
 
     }
 }
