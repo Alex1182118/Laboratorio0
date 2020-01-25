@@ -28,9 +28,33 @@ namespace Peliculas.Controllers
                
         public string Get(string MostrarTodo)
         {
-             
-            
-           
+
+            if (PeliculaLista.Count < 10)
+            {
+
+                for (int i = 0; i < PeliculaLista.Count; i++)
+                {
+
+
+                    var mostrar = "\n" + "Nombre:" + PeliculaLista[i].Nombre + "\n" + "Director:"
+                        + PeliculaLista[i].Director + "\n" + "Año:" + PeliculaLista[i].Año + "\n";
+                    MostrarTodo += mostrar;
+
+                }
+            }
+            else
+            {
+                for (int i = PeliculaLista.Count - 10; i < PeliculaLista.Count; i++)
+                {
+
+                    var mostrar = "\n" + "Nombre:" + PeliculaLista[i].Nombre + "\n" + "Director:"
+                        + PeliculaLista[i].Director + "\n" + "Año:" + PeliculaLista[i].Año + "\n";
+                    MostrarTodo += mostrar;
+                }
+
+
+            }
+
             return MostrarTodo;
 
         }

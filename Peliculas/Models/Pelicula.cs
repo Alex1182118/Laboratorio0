@@ -10,6 +10,6 @@ namespace Peliculas.Models
 
         public string Nombre { get; set; }
         public string Director { get; set; }
-        public string Year { get; set; }
+        public string Año { get; set; }
     }
 }
