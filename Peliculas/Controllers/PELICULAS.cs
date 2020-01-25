@@ -20,8 +20,7 @@ namespace Peliculas.Controllers
         [HttpPost]
         public void AñadirPeliculas([FromBody] Pelicula pelicula) 
         {
-
-          
+            PeliculaLista.Add(pelicula);
         }
 
         //[Route("MostrarPelicula")]
